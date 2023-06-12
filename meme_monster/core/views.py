@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-    return render(request,'index.html',{'user_profile':user_profile})
+    posts = Post.objects.all()
+    return render(request,'index.html',{'user_profile':user_profile,'posts':posts})
 
 def signup(request):
     if request.method == 'POST':
@@ -72,8 +73,6 @@ def logout(request):
 
 
 
-
-
 @login_required(login_url='signin')
 def settings(request):
     user_profile = Profile.objects.get(user=request.user)
@@ -101,6 +100,7 @@ def settings(request):
             user_profile.save()
 
     return render(request, 'setting.html',{'user_profile': user_profile})
+
 
 def upload(request):
     if request.method =='POST':
