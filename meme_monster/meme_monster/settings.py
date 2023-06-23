@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-cuy&86=bx@#%&r9q=hw_cx)v&h_8lc*=&@xr!$mcv=p4qrp%%i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -69,7 +70,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'meme_monster.wsgi.application'
+WSGI_APPLICATION = 'meme_monster.wsgi.app'
+
 
 
 # Database
@@ -77,8 +79,13 @@ WSGI_APPLICATION = 'meme_monster.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:2FgEB3U6gXbMBCZuWTqI@containers-us-west-13.railway.app:6425/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '2FgEB3U6gXbMBCZuWTqI',
+        'HOST': 'containers-us-west-13.railway.app',
+        'PORT': 6425,
     }
 }
 
