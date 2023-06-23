@@ -3,6 +3,10 @@
       {
         "src": "meme_monster/wsgi.py",
         "use": "@vercel/python"
+      },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/staticfiles"
       }
     ],
     "routes": [
