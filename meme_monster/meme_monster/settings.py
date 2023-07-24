@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-cuy&86=bx@#%&r9q=hw_cx)v&h_8lc*=&@xr!$mcv=p4qrp%%i
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app' '.now.sh']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,13 +79,8 @@ WSGI_APPLICATION = 'meme_monster.wsgi.app'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'URL': 'postgresql://postgres:2FgEB3U6gXbMBCZuWTqI@containers-us-west-13.railway.app:6425/railway',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '2FgEB3U6gXbMBCZuWTqI',
-        'HOST': 'containers-us-west-13.railway.app',
-        'PORT': 6425,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -125,8 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
